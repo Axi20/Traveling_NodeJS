@@ -2,7 +2,10 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script>
         var subjectObject = {
             "Front-end": {
@@ -42,14 +45,7 @@
             }
         }
 
-        function myFunction() {
-            var x = document.createElement("INPUT");
-            x.setAttribute("type", "date");
-            x.setAttribute("value", "2014-02-09");
-            document.body.appendChild(x);
-
-
-        }
+       
 
     </script>
 </head>
@@ -77,13 +73,15 @@
 
         </select>
         <br><br>
-        Indulás dátuma:  <select name="Indulás dátuma" id="Indulás dátuma">
-          myFunction();
+        Indulás dátuma: <select name="Érkezés dátuma" id="Érkezés dátuma">
+         
 
         </select>
-     
+        
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+       
+       
 
-        </select>
 
         <br><br>
         Érkezés dátuma: <select name="Érkezés dátuma" id="Érkezés dátuma">
