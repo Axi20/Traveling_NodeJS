@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>Utazási iroda</title>
+
+    <style>
+        body {
+            background-color: coral
+        }
+
+        ;
+    </style>
+</head>
+
+
+<script>
+
+    window.onload = function () {
+        var subjectSel = document.getElementById("subject");
+        var topicSel = document.getElementById("topic");
+        var chapterSel = document.getElementById("chapter");
+        for (var x in subjectObject) {
+            subjectSel.options[subjectSel.options.length] = new Option(x, x);
+        }
+        subjectSel.onchange = function () {
+            //empty Chapters- and Topics- dropdowns
+            chapterSel.length = 1;
+            topicSel.length = 1;
+            //display correct values
+            for (var y in subjectObject[this.value]) {
+                topicSel.options[topicSel.options.length] = new Option(y, y);
+            }
+        }
+        topicSel.onchange = function () {
+            //empty Chapters dropdown
+            chapterSel.length = 1;
+            //display correct values
+            var z = subjectObject[subjectSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+                chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+            }
+        }
+    }
+
+</script>
+</script>
+
+<body>
+
+    <p><a href="/">Nyitóoldal</a></p>
+
+    <label for="rendel">Rendeles</label>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Utazási iroda</h1>
+    </div>
+    </div>
+
+
+    <form name="form1" id="form1" action="">
+        <h4>Célállomás:</h4>
+        <select name="Célállomás" id="Célállomás">
+            <option value="" selected="selected">Spanyolország</option>
+            <option value="" selected="selected">Svédország</option>
+            <option value="" selected="selected">Olaszország</option>
+            <option value="" selected="selected">Korzika</option>
+            <option value="" selected="selected">Görögország</option>
+            <option value="" selected="selected">Korzika</option>
+            <option value="" selected="selected">Hollandia</option>
+            <option value="" selected="selected">Tibet</option>
+            <option value="" selected="selected">India</option>
+            <option value="" selected="selected">Japán</option>
+        </select>
+        <br><br>
+        <h4>Indulás dátuma: </h4>
+
+        <input class="form-control" type="datetime-local" placeholder="Select DateTime">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        </select>
+
+        <br><br>
+        <h4>Érkezés dátuma: </h4>
+        <input class="form-control" type="datetime-local" placeholder="Select DateTime">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        </select>
+        <br><br>
+        <h4>Napok száma : </h4>
+        <select name="Napok száma" id="Napok száma">
+            <option value="" selected="selected">2</option>
+            <option value="" selected="selected">3</option>
+            <option value="" selected="selected">4</option>
+            <option value="" selected="selected">5</option>
+            <option value="" selected="selected">6</option>
+            <option value="" selected="selected">7</option>
+        </select>
+
+        <br><br>
+        <h4>Ár:</h4>
+        <select name="Ár" id="Ár">
+            <option value="" selected="selected">Please select topic first</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Elfogad">
+    </form>
+    <script>
+        flatpickr("input[type=datetime-local]", {});
+    </script>
+
+
+</body>
+
+
+</html>
